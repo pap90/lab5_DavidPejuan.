@@ -102,14 +102,25 @@ public class main extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         modemple = new javax.swing.JPopupMenu();
         jmi_nombre = new javax.swing.JMenuItem();
-        jmi_naci = new javax.swing.JMenuItem();
         jmi_usuario = new javax.swing.JMenuItem();
         jmi_contra = new javax.swing.JMenuItem();
         jmi_correo = new javax.swing.JMenuItem();
         jmi_puesto = new javax.swing.JMenuItem();
+        jmi_fecha = new javax.swing.JMenuItem();
         moddulces = new javax.swing.JPopupMenu();
+        jmi_nombredulce = new javax.swing.JMenuItem();
+        jmi_sabor = new javax.swing.JMenuItem();
+        jmi_catdulce = new javax.swing.JMenuItem();
         modpeli = new javax.swing.JPopupMenu();
         modaseo = new javax.swing.JPopupMenu();
+        modificar_puesto = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton10 = new javax.swing.JButton();
+        modificar_fechanaci = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        jdc_mod = new com.toedter.calendar.JDateChooser();
+        jButton11 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -246,7 +257,7 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(adminLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(64, 64, 64)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
@@ -258,16 +269,17 @@ public class main extends javax.swing.JFrame {
             adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(adminLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(adminLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jButton3)))
+                            .addGroup(adminLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(adminLayout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jButton3)))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -621,9 +633,6 @@ public class main extends javax.swing.JFrame {
         });
         modemple.add(jmi_nombre);
 
-        jmi_naci.setText("modificar nacimiento");
-        modemple.add(jmi_naci);
-
         jmi_usuario.setText("modificar usuario");
         jmi_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -641,10 +650,124 @@ public class main extends javax.swing.JFrame {
         modemple.add(jmi_contra);
 
         jmi_correo.setText("modificar correo");
+        jmi_correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_correoActionPerformed(evt);
+            }
+        });
         modemple.add(jmi_correo);
 
         jmi_puesto.setText("modificar puesto");
+        jmi_puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_puestoActionPerformed(evt);
+            }
+        });
         modemple.add(jmi_puesto);
+
+        jmi_fecha.setText("modificar fecha de nacimiento");
+        jmi_fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_fechaActionPerformed(evt);
+            }
+        });
+        modemple.add(jmi_fecha);
+
+        jmi_nombredulce.setText("modificar nombre");
+        jmi_nombredulce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_nombredulceActionPerformed(evt);
+            }
+        });
+        moddulces.add(jmi_nombredulce);
+
+        jmi_sabor.setText("modificar sabor");
+        jmi_sabor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_saborActionPerformed(evt);
+            }
+        });
+        moddulces.add(jmi_sabor);
+
+        jmi_catdulce.setText("modificar categoria");
+        moddulces.add(jmi_catdulce);
+
+        jLabel23.setText("ingrese puesto");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dulceria", "boleteria", "aseo" }));
+
+        jButton10.setText("guardar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificar_puestoLayout = new javax.swing.GroupLayout(modificar_puesto.getContentPane());
+        modificar_puesto.getContentPane().setLayout(modificar_puestoLayout);
+        modificar_puestoLayout.setHorizontalGroup(
+            modificar_puestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_puestoLayout.createSequentialGroup()
+                .addGroup(modificar_puestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificar_puestoLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addGroup(modificar_puestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel23)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(modificar_puestoLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jButton10)))
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        modificar_puestoLayout.setVerticalGroup(
+            modificar_puestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_puestoLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel23)
+                .addGap(29, 29, 29)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addContainerGap())
+        );
+
+        jLabel24.setText("ingrese fecha de nacimiento");
+
+        jButton11.setText("guardar");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificar_fechanaciLayout = new javax.swing.GroupLayout(modificar_fechanaci.getContentPane());
+        modificar_fechanaci.getContentPane().setLayout(modificar_fechanaciLayout);
+        modificar_fechanaciLayout.setHorizontalGroup(
+            modificar_fechanaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_fechanaciLayout.createSequentialGroup()
+                .addGroup(modificar_fechanaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificar_fechanaciLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel24))
+                    .addGroup(modificar_fechanaciLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jdc_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(modificar_fechanaciLayout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(jButton11)))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+        modificar_fechanaciLayout.setVerticalGroup(
+            modificar_fechanaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_fechanaciLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel24)
+                .addGap(38, 38, 38)
+                .addComponent(jdc_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton11)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -857,9 +980,9 @@ public class main extends javax.swing.JFrame {
             usuario = ((empleado) modelo.get(i)).getUsuario();
             nombre = ((empleado) modelo.get(i)).getNombre();
             contraseña = ((empleado) modelo.get(i)).getContraseña();
-            correo =((empleado)modelo.get(i)).getCorreo();
-            puesto=((empleado)modelo.get(i)).getPuesto();
-            fechanaci=((empleado)modelo.get(i)).getFechanaci();
+            correo = ((empleado) modelo.get(i)).getCorreo();
+            puesto = ((empleado) modelo.get(i)).getPuesto();
+            fechanaci = ((empleado) modelo.get(i)).getFechanaci();
             int centinela = -1;
             for (int j = 0; j < raiz.getChildCount(); j++) {
                 if (raiz.getChildAt(j).toString().equals(puesto)) {
@@ -881,30 +1004,87 @@ public class main extends javax.swing.JFrame {
     private void jl_empleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_empleadosMouseClicked
         // TODO add your handling code here:
         if (evt.isMetaDown()) {
-            modemple.show(evt.getComponent(), evt.getX(), evt.getY());
+            if (jl_empleados.getSelectedIndex() >= 0) {
+
+                modemple.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
         }
     }//GEN-LAST:event_jl_empleadosMouseClicked
 
     private void jmi_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_nombreActionPerformed
         // TODO add your handling code here:
-        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
-        String nombre=JOptionPane.showInputDialog("ingrese nombre ");
-        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setNombre(nombre);
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        String nombre = JOptionPane.showInputDialog("ingrese nombre ");
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setNombre(nombre);
     }//GEN-LAST:event_jmi_nombreActionPerformed
 
     private void jmi_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_usuarioActionPerformed
         // TODO add your handling code here:
-        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
-        String u=JOptionPane.showInputDialog("ingrese usuario ");
-        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setUsuario(u);
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        String u = JOptionPane.showInputDialog("ingrese usuario ");
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setUsuario(u);
     }//GEN-LAST:event_jmi_usuarioActionPerformed
 
     private void jmi_contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_contraActionPerformed
         // TODO add your handling code here:
-        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
-        String c=JOptionPane.showInputDialog("ingrese nueva contra ");
-        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setContraseña(c);
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        String c = JOptionPane.showInputDialog("ingrese nueva contra ");
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setContraseña(c);
     }//GEN-LAST:event_jmi_contraActionPerformed
+
+    private void jmi_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_correoActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        String co = JOptionPane.showInputDialog("ingrese correo ");
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setCorreo(co);
+    }//GEN-LAST:event_jmi_correoActionPerformed
+
+    private void jmi_puestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_puestoActionPerformed
+        // TODO add your handling code here:
+        modificar_puesto.setModal(true);
+        modificar_puesto.pack();
+        modificar_puesto.setLocationRelativeTo(this);
+        modificar_puesto.setVisible(true);
+
+    }//GEN-LAST:event_jmi_puestoActionPerformed
+
+    private void jmi_nombredulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_nombredulceActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_dulces.getModel();
+        String nombre = JOptionPane.showInputDialog("ingrese nombre ");
+        ((dulces) modelo.get(jl_dulces.getSelectedIndex())).setNombre(nombre);
+    }//GEN-LAST:event_jmi_nombredulceActionPerformed
+
+    private void jmi_saborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_saborActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_dulces.getModel();
+        String sabor = JOptionPane.showInputDialog("ingrese sabor ");
+        ((dulces) modelo.get(jl_dulces.getSelectedIndex())).setSabor(sabor);
+    }//GEN-LAST:event_jmi_saborActionPerformed
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        String puesto = JOptionPane.showInputDialog("ingrese puesto ");
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setPuesto(puesto);
+        modificar_puesto.setVisible(false);
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jmi_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_fechaActionPerformed
+        // TODO add your handling code here:
+        modificar_fechanaci.setModal(true);
+        modificar_fechanaci.pack();
+        modificar_fechanaci.setLocationRelativeTo(this);
+        modificar_fechanaci.setVisible(true);
+    }//GEN-LAST:event_jmi_fechaActionPerformed
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        Date nueva=jdc_mod.getDate();
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setFechanaci(nueva);
+        modificar_fechanaci.setVisible(false);
+    }//GEN-LAST:event_jButton11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -951,6 +1131,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_puesto;
     private javax.swing.JDialog dulceria;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -959,6 +1141,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -974,6 +1157,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -994,15 +1179,19 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private com.toedter.calendar.JDateChooser jd_fechadenacimiento;
+    private com.toedter.calendar.JDateChooser jdc_mod;
     private javax.swing.JList<String> jl_aseo;
     private javax.swing.JList<String> jl_dulces;
     private javax.swing.JList<String> jl_empleados;
     private javax.swing.JList<String> jl_pelis;
+    private javax.swing.JMenuItem jmi_catdulce;
     private javax.swing.JMenuItem jmi_contra;
     private javax.swing.JMenuItem jmi_correo;
-    private javax.swing.JMenuItem jmi_naci;
+    private javax.swing.JMenuItem jmi_fecha;
     private javax.swing.JMenuItem jmi_nombre;
+    private javax.swing.JMenuItem jmi_nombredulce;
     private javax.swing.JMenuItem jmi_puesto;
+    private javax.swing.JMenuItem jmi_sabor;
     private javax.swing.JMenuItem jmi_usuario;
     private javax.swing.JTree jt_aseo;
     private javax.swing.JTree jt_dulces;
@@ -1012,6 +1201,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu modaseo;
     private javax.swing.JPopupMenu moddulces;
     private javax.swing.JPopupMenu modemple;
+    private javax.swing.JDialog modificar_fechanaci;
+    private javax.swing.JDialog modificar_puesto;
     private javax.swing.JPopupMenu modpeli;
     private javax.swing.JPasswordField pf_contraseñaregistro;
     private javax.swing.JPasswordField pf_password;
