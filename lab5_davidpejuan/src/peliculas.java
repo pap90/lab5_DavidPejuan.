@@ -17,6 +17,13 @@ public class peliculas {
     public peliculas() {
     }
 
+    public peliculas(String nombre, String duracion, String clasificacion, String categoria) {
+        this.nombre = nombre;
+        this.duracion = duracion;
+        this.clasificacion = clasificacion;
+        this.categoria = categoria;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -48,10 +55,14 @@ public class peliculas {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+    
+    
+
+    
 
     @Override
     public String toString() {
-        return "peliculas{" + "nombre=" + nombre + ", duracion=" + duracion + ", clasificacion=" + clasificacion + ", categoria=" + categoria + '}';
+       return nombre;
     }
 
     

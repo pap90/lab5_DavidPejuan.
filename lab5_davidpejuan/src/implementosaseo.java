@@ -48,7 +48,7 @@ public class implementosaseo {
 
     @Override
     public String toString() {
-        return "implementosaseo{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", funcion=" + funcion + '}';
+        return nombre;
     }
 
     
