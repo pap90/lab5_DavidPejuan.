@@ -1,5 +1,9 @@
 
+import java.util.Date;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -62,7 +66,7 @@ public class main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jl_dulces = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_dulces = new javax.swing.JTree();
         jButton4 = new javax.swing.JButton();
         boleteria = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
@@ -80,7 +84,7 @@ public class main extends javax.swing.JFrame {
         jl_pelis = new javax.swing.JList<>();
         jButton7 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTree2 = new javax.swing.JTree();
+        jt_pelis = new javax.swing.JTree();
         aseo = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -94,8 +98,18 @@ public class main extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         jl_aseo = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTree3 = new javax.swing.JTree();
+        jt_aseo = new javax.swing.JTree();
         jButton9 = new javax.swing.JButton();
+        modemple = new javax.swing.JPopupMenu();
+        jmi_nombre = new javax.swing.JMenuItem();
+        jmi_naci = new javax.swing.JMenuItem();
+        jmi_usuario = new javax.swing.JMenuItem();
+        jmi_contra = new javax.swing.JMenuItem();
+        jmi_correo = new javax.swing.JMenuItem();
+        jmi_puesto = new javax.swing.JMenuItem();
+        moddulces = new javax.swing.JPopupMenu();
+        modpeli = new javax.swing.JPopupMenu();
+        modaseo = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -205,13 +219,23 @@ public class main extends javax.swing.JFrame {
         );
 
         jl_empleados.setModel(new DefaultListModel());
+        jl_empleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_empleadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jl_empleados);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("empleados");
         jt_empleados.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jt_empleados);
 
-        jButton3.setText("----->");
+        jButton3.setText("ver por puesto");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin.getContentPane());
         admin.getContentPane().setLayout(adminLayout);
@@ -224,9 +248,9 @@ public class main extends javax.swing.JFrame {
             .addGroup(adminLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(108, 108, 108)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
         );
@@ -317,10 +341,15 @@ public class main extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jl_dulces);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("dulces");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane4.setViewportView(jTree1);
+        jt_dulces.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(jt_dulces);
 
-        jButton4.setText("----->");
+        jButton4.setText("ver por categoria");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout dulceriaLayout = new javax.swing.GroupLayout(dulceria.getContentPane());
         dulceria.getContentPane().setLayout(dulceriaLayout);
@@ -330,10 +359,10 @@ public class main extends javax.swing.JFrame {
             .addGroup(dulceriaLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(49, 49, 49)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         dulceriaLayout.setVerticalGroup(
@@ -347,7 +376,7 @@ public class main extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(dulceriaLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addGap(64, 64, 64)
                         .addComponent(jButton4)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -430,11 +459,16 @@ public class main extends javax.swing.JFrame {
         jl_pelis.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(jl_pelis);
 
-        jButton7.setText("------->");
+        jButton7.setText("ver por categoria");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("peliculas");
-        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane6.setViewportView(jTree2);
+        jt_pelis.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane6.setViewportView(jt_pelis);
 
         javax.swing.GroupLayout boleteriaLayout = new javax.swing.GroupLayout(boleteria.getContentPane());
         boleteria.getContentPane().setLayout(boleteriaLayout);
@@ -444,11 +478,11 @@ public class main extends javax.swing.JFrame {
             .addGroup(boleteriaLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(66, 66, 66)
                 .addComponent(jButton7)
-                .addGap(110, 110, 110)
+                .addGap(115, 115, 115)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         boleteriaLayout.setVerticalGroup(
             boleteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,13 +490,13 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(boleteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(boleteriaLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton7))
-                    .addGroup(boleteriaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(boleteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(boleteriaLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton7)))
                 .addGap(0, 38, Short.MAX_VALUE))
         );
 
@@ -539,10 +573,15 @@ public class main extends javax.swing.JFrame {
         jScrollPane7.setViewportView(jl_aseo);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("productos de aseo");
-        jTree3.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane8.setViewportView(jTree3);
+        jt_aseo.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(jt_aseo);
 
-        jButton9.setText("----->");
+        jButton9.setText("ver por funcion");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout aseoLayout = new javax.swing.GroupLayout(aseo.getContentPane());
         aseo.getContentPane().setLayout(aseoLayout);
@@ -552,9 +591,9 @@ public class main extends javax.swing.JFrame {
             .addGroup(aseoLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(103, 103, 103))
         );
@@ -569,10 +608,43 @@ public class main extends javax.swing.JFrame {
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(aseoLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(82, 82, 82)
                         .addComponent(jButton9)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
+
+        jmi_nombre.setText("modificar nombre");
+        jmi_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_nombreActionPerformed(evt);
+            }
+        });
+        modemple.add(jmi_nombre);
+
+        jmi_naci.setText("modificar nacimiento");
+        modemple.add(jmi_naci);
+
+        jmi_usuario.setText("modificar usuario");
+        jmi_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_usuarioActionPerformed(evt);
+            }
+        });
+        modemple.add(jmi_usuario);
+
+        jmi_contra.setText("modificar contraseña");
+        jmi_contra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_contraActionPerformed(evt);
+            }
+        });
+        modemple.add(jmi_contra);
+
+        jmi_correo.setText("modificar correo");
+        modemple.add(jmi_correo);
+
+        jmi_puesto.setText("modificar puesto");
+        modemple.add(jmi_puesto);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -677,16 +749,162 @@ public class main extends javax.swing.JFrame {
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
-        modelo.addElement(new peliculas(tf_nombrepelis.getText(), tf_duracion.getText(), tf_clasificacion.getText(), (String)cb_categoria.getSelectedItem()));
+        modelo.addElement(new peliculas(tf_nombrepelis.getText(), tf_duracion.getText(), tf_clasificacion.getText(), (String) cb_categoria.getSelectedItem()));
         jl_pelis.setModel(modelo);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
-        DefaultListModel modelo= (DefaultListModel) jl_aseo.getModel();
-        modelo.addElement(new implementosaseo(tf_aseo.getText(), tf_descripcionaseo.getText(), (String)cb_aseo.getSelectedItem()));
+        DefaultListModel modelo = (DefaultListModel) jl_aseo.getModel();
+        modelo.addElement(new implementosaseo(tf_aseo.getText(), tf_descripcionaseo.getText(), (String) cb_aseo.getSelectedItem()));
         jl_aseo.setModel(modelo);
     }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_dulces.getModel();
+        for (int i = 0; i < modelo.getSize(); i++) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_dulces.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String sabor, nombre, categoria;
+            sabor = ((dulces) modelo.get(i)).getSabor();
+            nombre = ((dulces) modelo.get(i)).getNombre();
+            categoria = ((dulces) modelo.get(i)).getCategoria();
+            int centinela = -1;
+            for (int j = 0; j < raiz.getChildCount(); j++) {
+                if (raiz.getChildAt(j).toString().equals(categoria)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new dulces(nombre, sabor, categoria));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(j)).add(p);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(categoria);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new dulces(nombre, sabor, categoria));
+                n.add(p);
+                raiz.add(n);
+            }
+            modeloArbol.reload();
+        }
+
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        for (int i = 0; i < modelo.getSize(); i++) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_pelis.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre, duracion, clasificacion, categoria;
+            duracion = ((peliculas) modelo.get(i)).getDuracion();
+            nombre = ((peliculas) modelo.get(i)).getNombre();
+            categoria = ((peliculas) modelo.get(i)).getCategoria();
+            clasificacion = ((peliculas) modelo.get(i)).getClasificacion();
+            int centinela = -1;
+            for (int j = 0; j < raiz.getChildCount(); j++) {
+                if (raiz.getChildAt(j).toString().equals(categoria)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new peliculas(nombre, duracion, clasificacion, categoria));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(j)).add(p);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(categoria);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new peliculas(nombre, duracion, clasificacion, categoria));
+                n.add(p);
+                raiz.add(n);
+            }
+            modeloArbol.reload();
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_aseo.getModel();
+        for (int i = 0; i < modelo.getSize(); i++) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_aseo.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre, descripcion, funcion;
+            descripcion = ((implementosaseo) modelo.get(i)).getDescripcion();
+            nombre = ((implementosaseo) modelo.get(i)).getNombre();
+            funcion = ((implementosaseo) modelo.get(i)).getFuncion();
+            int centinela = -1;
+            for (int j = 0; j < raiz.getChildCount(); j++) {
+                if (raiz.getChildAt(j).toString().equals(funcion)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new implementosaseo(nombre, descripcion, funcion));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(j)).add(p);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(funcion);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new implementosaseo(nombre, descripcion, funcion));
+                n.add(p);
+                raiz.add(n);
+            }
+            modeloArbol.reload();
+        }
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        for (int i = 0; i < modelo.getSize(); i++) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_empleados.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre, usuario, contraseña, correo, puesto;
+            Date fechanaci;
+            usuario = ((empleado) modelo.get(i)).getUsuario();
+            nombre = ((empleado) modelo.get(i)).getNombre();
+            contraseña = ((empleado) modelo.get(i)).getContraseña();
+            correo =((empleado)modelo.get(i)).getCorreo();
+            puesto=((empleado)modelo.get(i)).getPuesto();
+            fechanaci=((empleado)modelo.get(i)).getFechanaci();
+            int centinela = -1;
+            for (int j = 0; j < raiz.getChildCount(); j++) {
+                if (raiz.getChildAt(j).toString().equals(puesto)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new empleado(nombre, fechanaci, usuario, contraseña, correo, puesto));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(j)).add(p);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(puesto);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new empleado(nombre, fechanaci, usuario, contraseña, correo, puesto));
+                n.add(p);
+                raiz.add(n);
+            }
+            modeloArbol.reload();
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jl_empleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_empleadosMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            modemple.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jl_empleadosMouseClicked
+
+    private void jmi_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_nombreActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
+        String nombre=JOptionPane.showInputDialog("ingrese nombre ");
+        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setNombre(nombre);
+    }//GEN-LAST:event_jmi_nombreActionPerformed
+
+    private void jmi_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_usuarioActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
+        String u=JOptionPane.showInputDialog("ingrese usuario ");
+        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setUsuario(u);
+    }//GEN-LAST:event_jmi_usuarioActionPerformed
+
+    private void jmi_contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_contraActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo=(DefaultListModel) jl_empleados.getModel();
+        String c=JOptionPane.showInputDialog("ingrese nueva contra ");
+        ((empleado)modelo.get(jl_empleados.getSelectedIndex())).setContraseña(c);
+    }//GEN-LAST:event_jmi_contraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -775,16 +993,26 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTree jTree1;
-    private javax.swing.JTree jTree2;
-    private javax.swing.JTree jTree3;
     private com.toedter.calendar.JDateChooser jd_fechadenacimiento;
     private javax.swing.JList<String> jl_aseo;
     private javax.swing.JList<String> jl_dulces;
     private javax.swing.JList<String> jl_empleados;
     private javax.swing.JList<String> jl_pelis;
+    private javax.swing.JMenuItem jmi_contra;
+    private javax.swing.JMenuItem jmi_correo;
+    private javax.swing.JMenuItem jmi_naci;
+    private javax.swing.JMenuItem jmi_nombre;
+    private javax.swing.JMenuItem jmi_puesto;
+    private javax.swing.JMenuItem jmi_usuario;
+    private javax.swing.JTree jt_aseo;
+    private javax.swing.JTree jt_dulces;
     private javax.swing.JTree jt_empleados;
+    private javax.swing.JTree jt_pelis;
     private javax.swing.JTextField jt_usuario;
+    private javax.swing.JPopupMenu modaseo;
+    private javax.swing.JPopupMenu moddulces;
+    private javax.swing.JPopupMenu modemple;
+    private javax.swing.JPopupMenu modpeli;
     private javax.swing.JPasswordField pf_contraseñaregistro;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_aseo;
