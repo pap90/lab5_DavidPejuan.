@@ -107,20 +107,36 @@ public class main extends javax.swing.JFrame {
         jmi_correo = new javax.swing.JMenuItem();
         jmi_puesto = new javax.swing.JMenuItem();
         jmi_fecha = new javax.swing.JMenuItem();
+        jmi_empleeliminar = new javax.swing.JMenuItem();
         moddulces = new javax.swing.JPopupMenu();
         jmi_nombredulce = new javax.swing.JMenuItem();
         jmi_sabor = new javax.swing.JMenuItem();
         jmi_catdulce = new javax.swing.JMenuItem();
         modpeli = new javax.swing.JPopupMenu();
+        jmi_modnombrepeli = new javax.swing.JMenuItem();
+        jmi_moddurapeli = new javax.swing.JMenuItem();
+        jmi_modclasipeli = new javax.swing.JMenuItem();
+        jmi_modcatpeli = new javax.swing.JMenuItem();
         modaseo = new javax.swing.JPopupMenu();
+        jmi_modnombreaseo = new javax.swing.JMenuItem();
+        jmi_moddescripcionaseo = new javax.swing.JMenuItem();
+        jmi_modfuncionaseo = new javax.swing.JMenuItem();
         modificar_puesto = new javax.swing.JDialog();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_modpuesto = new javax.swing.JComboBox<>();
         jButton10 = new javax.swing.JButton();
         modificar_fechanaci = new javax.swing.JDialog();
         jLabel24 = new javax.swing.JLabel();
         jdc_mod = new com.toedter.calendar.JDateChooser();
         jButton11 = new javax.swing.JButton();
+        modificar_categoriadul = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        cb_catdulcesmod = new javax.swing.JComboBox<>();
+        jButton12 = new javax.swing.JButton();
+        modificar_categoriapeli = new javax.swing.JDialog();
+        jLabel26 = new javax.swing.JLabel();
+        cb_modcatpeli = new javax.swing.JComboBox<>();
+        jButton13 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -350,6 +366,11 @@ public class main extends javax.swing.JFrame {
         );
 
         jl_dulces.setModel(new DefaultListModel());
+        jl_dulces.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_dulcesMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jl_dulces);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("dulces");
@@ -469,6 +490,11 @@ public class main extends javax.swing.JFrame {
         );
 
         jl_pelis.setModel(new DefaultListModel());
+        jl_pelis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_pelisMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jl_pelis);
 
         jButton7.setText("ver por categoria");
@@ -673,6 +699,14 @@ public class main extends javax.swing.JFrame {
         });
         modemple.add(jmi_fecha);
 
+        jmi_empleeliminar.setText("eliminar empleado");
+        jmi_empleeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_empleeliminarActionPerformed(evt);
+            }
+        });
+        modemple.add(jmi_empleeliminar);
+
         jmi_nombredulce.setText("modificar nombre");
         jmi_nombredulce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -690,11 +724,57 @@ public class main extends javax.swing.JFrame {
         moddulces.add(jmi_sabor);
 
         jmi_catdulce.setText("modificar categoria");
+        jmi_catdulce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_catdulceActionPerformed(evt);
+            }
+        });
         moddulces.add(jmi_catdulce);
+
+        jmi_modnombrepeli.setText("modificar el nombre de la pelicula");
+        jmi_modnombrepeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modnombrepeliActionPerformed(evt);
+            }
+        });
+        modpeli.add(jmi_modnombrepeli);
+
+        jmi_moddurapeli.setText("modificar duracion ");
+        jmi_moddurapeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_moddurapeliActionPerformed(evt);
+            }
+        });
+        modpeli.add(jmi_moddurapeli);
+
+        jmi_modclasipeli.setText("modificar clasificacion");
+        jmi_modclasipeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modclasipeliActionPerformed(evt);
+            }
+        });
+        modpeli.add(jmi_modclasipeli);
+
+        jmi_modcatpeli.setText("modificar categoria");
+        jmi_modcatpeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modcatpeliActionPerformed(evt);
+            }
+        });
+        modpeli.add(jmi_modcatpeli);
+
+        jmi_modnombreaseo.setText("modificar nombre");
+        modaseo.add(jmi_modnombreaseo);
+
+        jmi_moddescripcionaseo.setText("modificar descripcion");
+        modaseo.add(jmi_moddescripcionaseo);
+
+        jmi_modfuncionaseo.setText("modificar funcion");
+        modaseo.add(jmi_modfuncionaseo);
 
         jLabel23.setText("ingrese puesto");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dulceria", "boleteria", "aseo" }));
+        cb_modpuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dulceria", "boleteria", "aseo" }));
 
         jButton10.setText("guardar");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -713,7 +793,7 @@ public class main extends javax.swing.JFrame {
                         .addGap(129, 129, 129)
                         .addGroup(modificar_puestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel23)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cb_modpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(modificar_puestoLayout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(jButton10)))
@@ -725,7 +805,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel23)
                 .addGap(29, 29, 29)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_modpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton10)
                 .addContainerGap())
@@ -767,6 +847,87 @@ public class main extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jButton11)
                 .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jLabel25.setText("modificar categoria de dulce");
+
+        cb_catdulcesmod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "chocolates", "gomitas", "paletas", "chicles" }));
+
+        jButton12.setText("guardar");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificar_categoriadulLayout = new javax.swing.GroupLayout(modificar_categoriadul.getContentPane());
+        modificar_categoriadul.getContentPane().setLayout(modificar_categoriadulLayout);
+        modificar_categoriadulLayout.setHorizontalGroup(
+            modificar_categoriadulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_categoriadulLayout.createSequentialGroup()
+                .addGroup(modificar_categoriadulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificar_categoriadulLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jLabel25))
+                    .addGroup(modificar_categoriadulLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(cb_catdulcesmod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(modificar_categoriadulLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jButton12)))
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+        modificar_categoriadulLayout.setVerticalGroup(
+            modificar_categoriadulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_categoriadulLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel25)
+                .addGap(48, 48, 48)
+                .addComponent(cb_catdulcesmod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jButton12)
+                .addGap(23, 23, 23))
+        );
+
+        jLabel26.setText("modificar categoria de la pelicula");
+
+        cb_modcatpeli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "terror", "comedia", "romance", "drama", "accion", "infantil" }));
+
+        jButton13.setText("guardar");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificar_categoriapeliLayout = new javax.swing.GroupLayout(modificar_categoriapeli.getContentPane());
+        modificar_categoriapeli.getContentPane().setLayout(modificar_categoriapeliLayout);
+        modificar_categoriapeliLayout.setHorizontalGroup(
+            modificar_categoriapeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_categoriapeliLayout.createSequentialGroup()
+                .addGroup(modificar_categoriapeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificar_categoriapeliLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel26))
+                    .addGroup(modificar_categoriapeliLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(cb_modcatpeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificar_categoriapeliLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addGap(159, 159, 159))
+        );
+        modificar_categoriapeliLayout.setVerticalGroup(
+            modificar_categoriapeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_categoriapeliLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel26)
+                .addGap(57, 57, 57)
+                .addComponent(cb_modcatpeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addGap(34, 34, 34))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -886,9 +1047,10 @@ public class main extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_dulces.getModel();
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_dulces.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
         for (int i = 0; i < modelo.getSize(); i++) {
-            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_dulces.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
             String sabor, nombre, categoria;
             sabor = ((dulces) modelo.get(i)).getSabor();
             nombre = ((dulces) modelo.get(i)).getNombre();
@@ -915,9 +1077,10 @@ public class main extends javax.swing.JFrame {
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_pelis.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
         for (int i = 0; i < modelo.getSize(); i++) {
-            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_pelis.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
             String nombre, duracion, clasificacion, categoria;
             duracion = ((peliculas) modelo.get(i)).getDuracion();
             nombre = ((peliculas) modelo.get(i)).getNombre();
@@ -944,9 +1107,10 @@ public class main extends javax.swing.JFrame {
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_aseo.getModel();
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_aseo.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
         for (int i = 0; i < modelo.getSize(); i++) {
-            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_aseo.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
             String nombre, descripcion, funcion;
             descripcion = ((implementosaseo) modelo.get(i)).getDescripcion();
             nombre = ((implementosaseo) modelo.get(i)).getNombre();
@@ -972,9 +1136,10 @@ public class main extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_empleados.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
         for (int i = 0; i < modelo.getSize(); i++) {
-            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_empleados.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
             String nombre, usuario, contraseña, correo, puesto;
             Date fechanaci;
             usuario = ((empleado) modelo.get(i)).getUsuario();
@@ -1065,7 +1230,7 @@ public class main extends javax.swing.JFrame {
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
         DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
-        String puesto = JOptionPane.showInputDialog("ingrese puesto ");
+        String puesto = (String) cb_modpuesto.getSelectedItem();
         ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setPuesto(puesto);
         modificar_puesto.setVisible(false);
     }//GEN-LAST:event_jButton10MouseClicked
@@ -1080,11 +1245,88 @@ public class main extends javax.swing.JFrame {
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         // TODO add your handling code here:
-        Date nueva=jdc_mod.getDate();
+        Date nueva = jdc_mod.getDate();
         DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
         ((empleado) modelo.get(jl_empleados.getSelectedIndex())).setFechanaci(nueva);
         modificar_fechanaci.setVisible(false);
     }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jmi_empleeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_empleeliminarActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_empleados.getModel();
+        modelo.remove(jl_empleados.getSelectedIndex());
+    }//GEN-LAST:event_jmi_empleeliminarActionPerformed
+
+    private void jmi_catdulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_catdulceActionPerformed
+        // TODO add your handling code here:
+        modificar_categoriadul.setModal(true);
+        modificar_categoriadul.pack();
+        modificar_categoriadul.setLocationRelativeTo(this);
+        modificar_categoriadul.setVisible(true);
+    }//GEN-LAST:event_jmi_catdulceActionPerformed
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_dulces.getModel();
+        String cat = (String) cb_catdulcesmod.getSelectedItem();
+        ((dulces) modelo.get(jl_dulces.getSelectedIndex())).setCategoria(cat);
+        modificar_categoriadul.setVisible(false);
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jmi_modnombrepeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modnombrepeliActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        String nombre = JOptionPane.showInputDialog("Ingrese nuevo nombre");
+        ((peliculas) modelo.get(jl_pelis.getSelectedIndex())).setNombre(nombre);
+    }//GEN-LAST:event_jmi_modnombrepeliActionPerformed
+
+    private void jmi_moddurapeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_moddurapeliActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        String duracion = JOptionPane.showInputDialog("Ingrese nueva duracion");
+        ((peliculas) modelo.get(jl_pelis.getSelectedIndex())).setDuracion(duracion);
+    }//GEN-LAST:event_jmi_moddurapeliActionPerformed
+
+    private void jmi_modclasipeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modclasipeliActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        String clasificacion = JOptionPane.showInputDialog("Ingrese nueva clasificacion");
+        ((peliculas) modelo.get(jl_pelis.getSelectedIndex())).setClasificacion(clasificacion);
+    }//GEN-LAST:event_jmi_modclasipeliActionPerformed
+
+    private void jmi_modcatpeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modcatpeliActionPerformed
+        // TODO add your handling code here:
+        modificar_categoriapeli.setModal(true);
+        modificar_categoriapeli.pack();
+        modificar_categoriapeli.setLocationRelativeTo(this);
+        modificar_categoriapeli.setVisible(true);
+    }//GEN-LAST:event_jmi_modcatpeliActionPerformed
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel) jl_pelis.getModel();
+        String categoria = (String) cb_modcatpeli.getSelectedItem();
+        ((peliculas) modelo.get(jl_pelis.getSelectedIndex())).setCategoria(categoria);
+        modificar_categoriapeli.setVisible(false);
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jl_dulcesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_dulcesMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            if (jl_dulces.getSelectedIndex() >= 0) {
+                moddulces.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_dulcesMouseClicked
+
+    private void jl_pelisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_pelisMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            if (jl_pelis.getSelectedIndex()>=0) {
+                modpeli.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_pelisMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1127,12 +1369,17 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog boleteria;
     private javax.swing.JComboBox<String> cb_aseo;
     private javax.swing.JComboBox<String> cb_catdulce;
+    private javax.swing.JComboBox<String> cb_catdulcesmod;
     private javax.swing.JComboBox<String> cb_categoria;
+    private javax.swing.JComboBox<String> cb_modcatpeli;
+    private javax.swing.JComboBox<String> cb_modpuesto;
     private javax.swing.JComboBox<String> cb_puesto;
     private javax.swing.JDialog dulceria;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1141,7 +1388,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1159,6 +1405,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1187,7 +1435,15 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_catdulce;
     private javax.swing.JMenuItem jmi_contra;
     private javax.swing.JMenuItem jmi_correo;
+    private javax.swing.JMenuItem jmi_empleeliminar;
     private javax.swing.JMenuItem jmi_fecha;
+    private javax.swing.JMenuItem jmi_modcatpeli;
+    private javax.swing.JMenuItem jmi_modclasipeli;
+    private javax.swing.JMenuItem jmi_moddescripcionaseo;
+    private javax.swing.JMenuItem jmi_moddurapeli;
+    private javax.swing.JMenuItem jmi_modfuncionaseo;
+    private javax.swing.JMenuItem jmi_modnombreaseo;
+    private javax.swing.JMenuItem jmi_modnombrepeli;
     private javax.swing.JMenuItem jmi_nombre;
     private javax.swing.JMenuItem jmi_nombredulce;
     private javax.swing.JMenuItem jmi_puesto;
@@ -1201,6 +1457,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu modaseo;
     private javax.swing.JPopupMenu moddulces;
     private javax.swing.JPopupMenu modemple;
+    private javax.swing.JDialog modificar_categoriadul;
+    private javax.swing.JDialog modificar_categoriapeli;
     private javax.swing.JDialog modificar_fechanaci;
     private javax.swing.JDialog modificar_puesto;
     private javax.swing.JPopupMenu modpeli;
