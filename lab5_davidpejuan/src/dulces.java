@@ -11,12 +11,12 @@
 public class dulces {
     private String nombre;
     private String sabor;
-    private int categoria;
+    private String categoria;
 
     public dulces() {
     }
 
-    public dulces(String nombre, String sabor, int categoria) {
+    public dulces(String nombre, String sabor, String categoria) {
         this.nombre = nombre;
         this.sabor = sabor;
         this.categoria = categoria;
@@ -38,13 +38,15 @@ public class dulces {
         this.sabor = sabor;
     }
 
-    public int getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    
 
     @Override
     public String toString() {

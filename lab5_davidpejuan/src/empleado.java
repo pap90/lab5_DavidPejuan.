@@ -1,3 +1,6 @@
+
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,16 +13,16 @@
  */
 public class empleado {
     private String Nombre; 
-    private String fechanaci;
+    private Date fechanaci;
     private String usuario;
     private String contraseña;
     private String correo;
-    private int puesto;
+    private String puesto;
 
     public empleado() {
     }
 
-    public empleado(String Nombre, String fechanaci, String usuario, String contraseña, String correo, int puesto) {
+    public empleado(String Nombre, Date fechanaci, String usuario, String contraseña, String correo, String puesto) {
         this.Nombre = Nombre;
         this.fechanaci = fechanaci;
         this.usuario = usuario;
@@ -27,6 +30,8 @@ public class empleado {
         this.correo = correo;
         this.puesto = puesto;
     }
+
+    
 
     public String getNombre() {
         return Nombre;
@@ -36,13 +41,15 @@ public class empleado {
         this.Nombre = Nombre;
     }
 
-    public String getFechanaci() {
+    public Date getFechanaci() {
         return fechanaci;
     }
 
-    public void setFechanaci(String fechanaci) {
+    public void setFechanaci(Date fechanaci) {
         this.fechanaci = fechanaci;
     }
+
+    
 
     public String getUsuario() {
         return usuario;
@@ -68,26 +75,24 @@ public class empleado {
         this.correo = correo;
     }
 
-    public int getPuesto() {
+    public String getPuesto() {
         return puesto;
     }
 
-    public void setPuesto(int puesto) {
+    public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
 
+    
+    
     @Override
     public String toString() {
-        String pues="";
-        if (puesto==1) {
-            pues="dulceria";
-        }else if (puesto==2) {
-            pues="boleteria";
-        }else if (puesto==3) {
-            pues="aseo";
-        }
-        return "empleado{" + "Nombre=" + Nombre + ", fechanaci=" + fechanaci + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", correo=" + correo + ", puesto=" + pues + '}';
+        return "empleado{" + "Nombre=" + Nombre + ", fechanaci=" + fechanaci + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", correo=" + correo + ", puesto=" + puesto + '}';
     }
+
+    
+
+    
     
     
     
