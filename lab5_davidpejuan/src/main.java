@@ -21,6 +21,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        System.out.println("Se modifica en las listas");
     }
 
     /**
